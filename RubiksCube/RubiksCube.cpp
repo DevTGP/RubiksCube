@@ -1,4 +1,5 @@
 #include "GameInterface.h"
+#include "TestGlm.h"
 
 #include <iostream>
 #define GLEW_STATIC
@@ -7,6 +8,7 @@
 
 // Collection of test cases.
 GameInterface gDummyInterface;
+TestGlm gTestGlm;
 
 
 GameInterface* gUsedInterface;
@@ -18,11 +20,11 @@ void APIENTRY openGLDebugCallback(
         return;
 
     std::cerr << "|''''''''''   OpenGL Debug Message   ''''''''''|\n";
-    std::cerr << "Message : " << message << "\n";
-    std::cerr << "Source  : " << source << "\n";
-    std::cerr << "Type    : " << type << "\n";
-    std::cerr << "ID      : " << id << "\n";
-    std::cerr << "Severity: " << severity << "\n";
+    std::cerr << "| Message : " << message << "\n";
+    std::cerr << "| Source  : " << source << "\n";
+    std::cerr << "| Type    : " << type << "\n";
+    std::cerr << "| ID      : " << id << "\n";
+    std::cerr << "| Severity: " << severity << "\n";
     std::cerr << "|______________________________________________|\n";
 
     if (severity == GL_DEBUG_SEVERITY_HIGH) std::cerr << "Critical Bug Detected\n";
@@ -52,7 +54,6 @@ GLFWwindow* InitializeSystem()
 
     return window;
 }
-
 
 void RunCoreLoop(GLFWwindow* window)
 {
@@ -87,10 +88,19 @@ void RunCoreLoop(GLFWwindow* window)
     }
 }
 
+
+void ShutdownSystem()
+{
+    gUsedInterface->ClearResources();
+    glfwTerminate();
+}
+
+
 int main()
 {
-    gUsedInterface = &gDummyInterface;
+    // gUsedInterface = &gDummyInterface;
+    gUsedInterface = &gTestGlm;
     GLFWwindow* window = InitializeSystem();
     RunCoreLoop(window);
-    // ShutdownSystem();
+    ShutdownSystem();
 }
