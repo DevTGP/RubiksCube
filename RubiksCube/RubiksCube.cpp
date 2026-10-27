@@ -6,9 +6,12 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "TestTriangle.h"
+
 // Collection of test cases.
 GameInterface gDummyInterface;
 TestGlm gTestGlm;
+TestTriangle gTestTriangle;
 
 
 GameInterface* gUsedInterface;
@@ -75,7 +78,7 @@ void RunCoreLoop(GLFWwindow* window)
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
 
-        glClearColor(.0f, .0f, .0f, .0f);
+        // glClearColor(.0f, .0f, .0f, .0f);
         glClearColor(.4f, .15f, .6f, .0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -99,7 +102,8 @@ void ShutdownSystem()
 int main()
 {
     // gUsedInterface = &gDummyInterface;
-    gUsedInterface = &gTestGlm;
+    // gUsedInterface = &gTestGlm;
+    gUsedInterface = &gTestTriangle;
     GLFWwindow* window = InitializeSystem();
     RunCoreLoop(window);
     ShutdownSystem();
