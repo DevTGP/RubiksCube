@@ -8,10 +8,14 @@ class TestTriangle : public GameInterface
 {
 public:
     void Initialize() override;
-    void Update(double deltaTime) override;;
+    void Update(double deltaTime) override;
     void Render(float aspectRatio) override;
     void ClearResources() override;
 
 private:
     float m_turningAngle;
+    GLuint m_shaderProgram;
+    GLuint m_arrayBufferObject;
+    GLuint m_vertexBufferObject;
+    GLint m_transformLocation;
 };

@@ -150,6 +150,14 @@
         <ClInclude Include="TestGlm.h"/>
         <ClInclude Include="TestTriangle.h"/>
     </ItemGroup>
+    <ItemGroup>
+        <CopyFileToFolders Include="FSimple.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </CopyFileToFolders>
+        <CopyFileToFolders Include="VSimple.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </CopyFileToFolders>
+    </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
     <ImportGroup Label="ExtensionTargets">
     </ImportGroup>
