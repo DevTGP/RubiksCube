@@ -7,11 +7,13 @@
 #include <GLFW/glfw3.h>
 
 #include "TestTriangle.h"
+#include "TestCubie.h"
 
 // Collection of test cases.
 GameInterface gDummyInterface;
 TestGlm gTestGlm;
 TestTriangle gTestTriangle;
+TestCubie gTestCubie;
 
 
 GameInterface* gUsedInterface;
@@ -103,7 +105,8 @@ int main()
 {
     // gUsedInterface = &gDummyInterface;
     // gUsedInterface = &gTestGlm;
-    gUsedInterface = &gTestTriangle;
+    // gUsedInterface = &gTestTriangle;
+    gUsedInterface = &gTestCubie;
     GLFWwindow* window = InitializeSystem();
     RunCoreLoop(window);
     ShutdownSystem();

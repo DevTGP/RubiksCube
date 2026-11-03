@@ -7,10 +7,7 @@ class GameInterface
 public:
     virtual void Initialize() {}
 
-    virtual void Initialize(GLFWwindow* window)
-    {
-        Initialize();
-    }
+    virtual void Initialize(GLFWwindow* window) { Initialize(); }
 
     virtual void Update(double deltaTime) {}
 
