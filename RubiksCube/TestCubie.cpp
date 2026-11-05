@@ -1,10 +1,29 @@
 #include "TestCubie.h"
-#include "ShaderUtil.h"
 
-void TestCubie::Initialize() { m_shaderProgram = ShaderUtil::CreateShaderProgram("VColor.glsl", "FColor.glsl"); }
+#include "TestGlm.h"
 
+void TestCubie::Initialize()
+{
+    m_cubieRenderer.Initialize();
+    m_turningAngle = 0.0f;
+}
 
 void TestCubie::ClearResources()
 {
-    glDeleteProgram(m_shaderProgram);
+    m_cubieRenderer.ClearResources();
+}
+
+void TestCubie::Update(double deltaTime)
+{
+    m_turningAngle += static_cast<float>(deltaTime) * glm::radians(30.0f);
+}
+
+void TestCubie::Render(float aspectRatio)
+{
+    glm::mat4 globalTransformation =
+        glm::perspective(45.0f, aspectRatio, 0.01f, 100.0f) *
+        glm::lookAt(glm::vec3(0.0f, 0.0f, -3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f)) *
+        glm::rotate(glm::mat4(1.0f), m_turningAngle, glm::vec3(1.0f, 1.0f, 1.0f));
+
+    m_cubieRenderer.Render(globalTransformation);
 }

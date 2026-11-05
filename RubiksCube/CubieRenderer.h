@@ -14,6 +14,7 @@ public:
 
 private:
     void AddSidePosition(int sideType, int direction, std::vector<glm::vec3>& positionArray);
+    void AddSideColor(int sideType, int direction, std::vector<glm::vec3>& colorArray);
     void TranscribeToFloatArray(const std::vector<glm::vec3>& vecArray, float* floatArray);
 
     const float m_offset = 0.5f;
@@ -21,6 +22,6 @@ private:
     float m_turningAngle;
     GLuint m_shaderProgram;
     GLuint m_arrayBufferObject;
-    GLuint m_vertexBufferObject;
+    GLuint m_vertexBufferObject[2];
     GLint m_transformLocation;
 };
