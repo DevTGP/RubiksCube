@@ -9,6 +9,7 @@
 #include "TestCompoundCube.h"
 #include "TestTriangle.h"
 #include "TestCubie.h"
+#include "TestKey.h"
 
 // Collection of test cases.
 GameInterface gDummyInterface;
@@ -16,6 +17,7 @@ TestGlm gTestGlm;
 TestTriangle gTestTriangle;
 TestCubie gTestCubie;
 TestCompoundCube gTestCompoundCube;
+TestKey gTestKey;
 
 
 GameInterface* gUsedInterface;
@@ -113,7 +115,9 @@ int main()
     // gUsedInterface = &gTestGlm;
     // gUsedInterface = &gTestTriangle;
     // gUsedInterface = &gTestCubie;
-    gUsedInterface = &gTestCompoundCube;
+    // gUsedInterface = &gTestCompoundCube;
+    gUsedInterface = &gTestKey;
+
     GLFWwindow* window = InitializeSystem();
     RunCoreLoop(window);
     ShutdownSystem();

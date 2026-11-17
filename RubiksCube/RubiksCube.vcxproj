@@ -140,20 +140,26 @@
     </ItemDefinitionGroup>
     <ItemGroup>
         <ClCompile Include="CubieRenderer.cpp"/>
+        <ClCompile Include="InputSystem.cpp"/>
+        <ClCompile Include="KeyObserver.cpp"/>
         <ClCompile Include="RubiksCube.cpp"/>
         <ClCompile Include="ShaderUtil.cpp"/>
         <ClCompile Include="TestCompoundCube.cpp"/>
         <ClCompile Include="TestCubie.cpp"/>
         <ClCompile Include="TestGlm.cpp"/>
+        <ClCompile Include="TestKey.cpp"/>
         <ClCompile Include="TestTriangle.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="CubieRenderer.h"/>
         <ClInclude Include="GameInterface.h"/>
+        <ClInclude Include="InputSystem.h"/>
+        <ClInclude Include="KeyObserver.h"/>
         <ClInclude Include="ShaderUtil.h"/>
         <ClInclude Include="TestCompoundCube.h"/>
         <ClInclude Include="TestCubie.h"/>
         <ClInclude Include="TestGlm.h"/>
+        <ClInclude Include="TestKey.h"/>
         <ClInclude Include="TestTriangle.h"/>
     </ItemGroup>
     <ItemGroup>
