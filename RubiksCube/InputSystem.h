@@ -1,6 +1,7 @@
 #pragma once
 #include "KeyObserver.h"
 #include <map>
+#include <glm/mat4x4.hpp>
 
 class InputSystem
 {
@@ -32,6 +33,13 @@ public:
     {
         return m_keyMapper.at(key).IsReleased();
     }
+
+    bool IsLeftMouseButtonDown();
+    bool IsRightMouseButtonDown();
+
+    void GetMousePosition(double& xPos, double& yPos);
+
+    void GetPickingRay(const glm::mat4& transformationMatrix, glm::vec3& startingPoint, glm::vec3& direction);
 
 private:
     GLFWwindow* m_window;
