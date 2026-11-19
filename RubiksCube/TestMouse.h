@@ -1,4 +1,5 @@
 #pragma once
+#include "CubieRenderer.h"
 #include "GameInterface.h"
 #include "InputSystem.h"
 
@@ -12,6 +13,7 @@ public:
 
 private:
     InputSystem m_inputSystem;
-    bool m_wasMousePressed;
-    GLFWwindow* m_window;
+    CubieRenderer m_renderer;
+    glm::vec3 m_cubiePosition;
+    glm::mat4 m_viewProjectionMatrix;
 };
